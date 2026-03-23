@@ -1,0 +1,19 @@
+{
+  "name": "e-commercewebsite-master",
+  "version": "1.0.0",
+  "description": "A mobile responsive sample of E-Commerce Website using HTML, CSS, JavaScript and API's",
+  "main": "cart.js",
+  "scripts": {
+  "dev": "vite",
+  "build": "vite build",
+  "preview": "vite preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "vite": "^7.1.5"
+  }
+}

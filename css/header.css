@@ -1,0 +1,210 @@
+/* ==========================================================================
+   Header Styles
+   ========================================================================== */
+
+#container {
+    background-color: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border-color);
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1.5fr 1.5fr 5fr 1fr;
+    grid-gap: 15px;
+    font-family: var(--font-family);
+    z-index: 1000;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 40px;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-normal);
+}
+
+#shopName {
+    font-size: 32px; 
+    font-family: var(--font-family);
+    letter-spacing: -0.5px;
+}
+
+#shopName a {
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: color var(--transition-fast);
+}
+
+#shopName a:hover {
+    color: var(--primary-color);
+}
+
+#shopName b {
+    font-weight: var(--font-weight-black);
+    color: var(--primary-color);
+}
+
+#collection {
+    font-weight: var(--font-weight-semibold);
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+#collection a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    transition: color var(--transition-fast);
+}
+
+#collection a:hover {
+    color: var(--primary-color);
+}
+
+#search {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.search {
+    position: absolute;
+    left: 16px;
+    color: var(--text-secondary);
+    font-size: 16px;
+    pointer-events: none;
+}
+
+#input {
+    width: 100%;
+    max-width: 500px;
+    height: 44px;
+    padding: 10px 16px 10px 48px;
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-pill);
+    font-family: var(--font-family);
+    font-size: 15px;
+    color: var(--text-primary);
+    transition: all var(--transition-normal);
+}
+
+#input::placeholder {
+    font-weight: var(--font-weight-medium);
+    color: var(--text-secondary);
+}
+
+#input:focus {
+    outline: none;
+    background-color: var(--surface-color);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15); /* primary-color with opacity */
+}
+
+#user {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 25px;
+}
+
+#user a {
+    color: var(--text-secondary);
+    transition: color var(--transition-fast), transform var(--transition-fast);
+    display: flex;
+    align-items: center;
+}
+
+#user a:hover {
+    color: var(--primary-color);
+    transform: scale(1.05);
+}
+
+.userIcon {
+    font-size: 32px;
+}
+
+.addedToCart {
+    font-size: 26px;
+    position: relative;
+    display: inline-block;
+}
+
+#badge {
+    position: absolute;
+    background-color: var(--danger-color);
+    color: white;
+    border-radius: var(--radius-pill);
+    min-width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: var(--font-weight-bold);
+    top: -6px;
+    right: -10px;
+    box-shadow: 0 2px 5px rgba(239, 68, 68, 0.4);
+    border: 2px solid var(--surface-color);
+}
+
+/* ----------------------------- MEDIA QUERY --------------------------- */
+
+@media(max-width: 1212px) {
+    #collection {
+        gap: 20px;
+    }
+    #input {
+        max-width: 400px;
+    }
+}
+
+@media(max-width: 1090px) {
+    #container {
+        grid-template-columns: 1fr 1.5fr 1fr;
+    }
+    #search {
+        display: none;
+    }
+    #user {
+        justify-content: flex-end;
+    }
+}
+
+@media(max-width: 750px) {
+    #shopName {
+        font-size: 24px;
+    }
+    #collection {
+        font-size: 12px;
+        gap: 15px;
+    }
+    .userIcon {
+        font-size: 28px;
+    }
+    .addedToCart {
+        font-size: 22px;
+    }
+}
+
+@media(max-width: 650px) {
+    #container {
+        padding: 12px 20px;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    #shopName {
+        font-size: 20px;
+    }
+    #collection {
+        display: none; /* Hide collection links on very small screens, typical pattern */
+    }
+    #user {
+        grid-column: 3;
+    }
+}

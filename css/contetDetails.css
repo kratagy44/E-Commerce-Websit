@@ -1,0 +1,214 @@
+/* ==========================================================================
+   Product Details Styles
+   ========================================================================== */
+
+#containerProduct {
+    padding-top: 100px; /* Space for fixed header */
+    min-height: calc(100vh - 80px); /* Fill screen min */
+    background-color: var(--bg-color);
+}
+
+#containerD {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    padding: 40px 0 80px;
+}
+
+#imageSection {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#imageSection img {
+    width: 100%;
+    max-width: 500px;
+    object-fit: cover;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+    transition: transform var(--transition-bounce), box-shadow var(--transition-normal);
+}
+
+#imageSection img:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
+}
+
+#productDetails {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#productDetails h1 {
+    font-size: 42px;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+    color: var(--text-primary);
+    line-height: 1.2;
+    font-weight: var(--font-weight-black);
+}
+
+#productDetails h4 {
+    font-size: 18px;
+    font-weight: var(--font-weight-bold);
+    color: var(--text-secondary);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+#productDetails h3 {
+    font-size: 28px;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    font-weight: var(--font-weight-bold);
+}
+
+#productPreview {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    padding: 10px 0;
+}
+
+#productPreview > img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all var(--transition-fast);
+    box-shadow: var(--shadow-sm);
+}
+
+#productPreview > img:hover {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-md);
+}
+
+#productPreview > img.active {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.2);
+}
+
+#productDetails p {
+    font-size: 16px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 40px;
+    max-width: 600px;
+}
+
+.btn-add-to-cart {
+    padding: 16px 32px;
+    color: white;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: var(--font-weight-semibold);
+    font-family: var(--font-family);
+    transition: all var(--transition-normal);
+    box-shadow: 0 4px 15px rgba(79, 70, 229, 0.4);
+    align-self: flex-start;
+}
+
+.btn-add-to-cart:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(79, 70, 229, 0.5);
+}
+
+.btn-add-to-cart:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.3);
+}
+
+/* ----------------------------- MEDIA QUERY --------------------------- */
+
+@media(max-width: 1024px) {
+    #containerD {
+        gap: 40px;
+        grid-template-columns: 1fr 1fr;
+    }
+    #productDetails h1 {
+        font-size: 36px;
+    }
+}
+
+@media(max-width: 850px) {
+    #containerD {
+        grid-template-columns: 1fr;
+        padding: 20px 0 60px;
+    }
+    #imageSection img {
+        max-width: 400px;
+    }
+    #productDetails {
+        align-items: center;
+        text-align: center;
+    }
+    #productDetails p {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .btn-add-to-cart {
+        align-self: center;
+        width: 100%;
+        max-width: 300px;
+    }
+    #productPreview {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+@media(max-width: 600px) {
+    #containerProduct {
+        padding-top: 80px;
+    }
+    #containerD {
+        width: 95%;
+    }
+    #productDetails h1 {
+        font-size: 28px;
+    }
+    #productDetails h3 {
+        font-size: 24px;
+    }
+    #imageSection img {
+        border-radius: var(--radius-lg);
+    }
+}
+
+/* Toast Notification (if used) */
+.toast {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--success-color);
+    color: white;
+    padding: 16px 24px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-medium);
+    font-size: 16px;
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
